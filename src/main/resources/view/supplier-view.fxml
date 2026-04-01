@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="edu.icet.controller.SupplierController"
+      spacing="15.0" style="-fx-background-color: white;">
+    
+    <padding>
+        <Insets top="20.0" right="20.0" bottom="20.0" left="20.0" />
+    </padding>
+    
+    <!-- Title -->
+    <Label text="Supplier Management" style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #2c3e50;" />
+    
+    <!-- Search and Add Section -->
+    <HBox spacing="10.0" alignment="CENTER_LEFT">
+        <TextField fx:id="txtSearch" promptText="Search suppliers..." prefWidth="300.0" />
+        <Button text="Search" onAction="#handleSearch" style="-fx-background-color: #3498db; -fx-text-fill: white;" />
+        <Region HBox.hgrow="ALWAYS" />
+        <Button text="+ Add New Supplier" onAction="#handleAdd" 
+                style="-fx-background-color: #27ae60; -fx-text-fill: white; -fx-font-size: 14px;" />
+    </HBox>
+    
+    <!-- Table -->
+    <TableView fx:id="tblSuppliers" VBox.vgrow="ALWAYS">
+        <columns>
+            <TableColumn fx:id="colId" text="ID" prefWidth="50.0" />
+            <TableColumn fx:id="colName" text="Name" prefWidth="150.0" />
+            <TableColumn fx:id="colContact" text="Contact Person" prefWidth="150.0" />
+            <TableColumn fx:id="colPhone" text="Phone" prefWidth="120.0" />
+            <TableColumn fx:id="colEmail" text="Email" prefWidth="180.0" />
+            <TableColumn fx:id="colAddress" text="Address" prefWidth="200.0" />
+        </columns>
+    </TableView>
+    
+    <!-- Action Buttons -->
+    <HBox spacing="10.0" alignment="CENTER_RIGHT">
+        <Button fx:id="btnEdit" text="Edit" onAction="#handleEdit" 
+                style="-fx-background-color: #f39c12; -fx-text-fill: white;" />
+        <Button fx:id="btnDelete" text="Delete" onAction="#handleDelete" 
+                style="-fx-background-color: #e74c3c; -fx-text-fill: white;" />
+        <Button text="Refresh" onAction="#handleRefresh" 
+                style="-fx-background-color: #95a5a6; -fx-text-fill: white;" />
+    </HBox>
+    
+</VBox>

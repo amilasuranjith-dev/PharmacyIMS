@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="edu.icet.controller.MedicineFormController"
+      spacing="15.0" style="-fx-background-color: white; -fx-padding: 20;">
+    
+    <Label text="Medicine Form" style="-fx-font-size: 20px; -fx-font-weight: bold;" />
+    
+    <GridPane hgap="10.0" vgap="10.0">
+        <columnConstraints>
+            <ColumnConstraints minWidth="100.0" />
+            <ColumnConstraints minWidth="200.0" />
+        </columnConstraints>
+        
+        <Label text="Name:*" GridPane.rowIndex="0" />
+        <TextField fx:id="txtName" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+        
+        <Label text="Brand:*" GridPane.rowIndex="1" />
+        <TextField fx:id="txtBrand" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+        
+        <Label text="Category:*" GridPane.rowIndex="2" />
+        <TextField fx:id="txtCategory" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+        
+        <Label text="Quantity:*" GridPane.rowIndex="3" />
+        <TextField fx:id="txtQuantity" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+        
+        <Label text="Unit Price:*" GridPane.rowIndex="4" />
+        <TextField fx:id="txtPrice" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+        
+        <Label text="Reorder Level:" GridPane.rowIndex="5" />
+        <TextField fx:id="txtReorderLevel" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+        
+        <Label text="Expiry Date:*" GridPane.rowIndex="6" />
+        <DatePicker fx:id="dpExpiry" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+        
+        <Label text="Supplier:*" GridPane.rowIndex="7" />
+        <ComboBox fx:id="cmbSupplier" GridPane.columnIndex="1" GridPane.rowIndex="7" prefWidth="200.0" />
+    </GridPane>
+    
+    <HBox spacing="10.0" alignment="CENTER_RIGHT">
+        <Button fx:id="btnSave" text="Save" style="-fx-background-color: #27ae60; -fx-text-fill: white;" />
+        <Button fx:id="btnCancel" text="Cancel" style="-fx-background-color: #95a5a6; -fx-text-fill: white;" />
+    </HBox>
+    
+</VBox>

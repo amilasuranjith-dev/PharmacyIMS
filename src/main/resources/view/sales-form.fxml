@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="edu.icet.controller.SalesFormController"
+      spacing="15.0" style="-fx-background-color: white; -fx-padding: 20;" prefWidth="700.0">
+    
+    <Label text="New Sale" style="-fx-font-size: 20px; -fx-font-weight: bold;" />
+    
+    <!-- Sale Info -->
+    <GridPane hgap="10.0" vgap="10.0">
+        <columnConstraints>
+            <ColumnConstraints minWidth="120.0" />
+            <ColumnConstraints minWidth="200.0" />
+        </columnConstraints>
+        
+        <Label text="Invoice Number:" GridPane.rowIndex="0" />
+        <TextField fx:id="txtInvoice" GridPane.columnIndex="1" GridPane.rowIndex="0" editable="false" />
+        
+        <Label text="Notes:" GridPane.rowIndex="1" />
+        <TextField fx:id="txtNotes" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+    </GridPane>
+    
+    <Separator />
+    
+    <!-- Add Item Section -->
+    <Label text="Add Items" style="-fx-font-size: 16px; -fx-font-weight: bold;" />
+    
+    <HBox spacing="10.0" alignment="CENTER_LEFT">
+        <Label text="Medicine:" minWidth="80.0" />
+        <ComboBox fx:id="cmbMedicine" prefWidth="200.0" />
+        
+        <Label text="Quantity:" minWidth="70.0" />
+        <TextField fx:id="txtQuantity" prefWidth="80.0" />
+        
+        <Button text="Add Item" onAction="#handleAddItem" 
+                style="-fx-background-color: #3498db; -fx-text-fill: white;" />
+    </HBox>
+    
+    <!-- Items Table -->
+    <TableView fx:id="tblItems" prefHeight="200.0">
+        <columns>
+            <TableColumn fx:id="colItemMedicine" text="Medicine" prefWidth="200.0" />
+            <TableColumn fx:id="colItemQuantity" text="Quantity" prefWidth="100.0" />
+            <TableColumn fx:id="colItemPrice" text="Unit Price" prefWidth="100.0" />
+            <TableColumn fx:id="colItemSubtotal" text="Subtotal" prefWidth="120.0" />
+        </columns>
+    </TableView>
+    
+    <HBox spacing="10.0">
+        <Button text="Remove Selected" onAction="#handleRemoveItem" 
+                style="-fx-background-color: #e74c3c; -fx-text-fill: white;" />
+    </HBox>
+    
+    <Separator />
+    
+    <!-- Totals -->
+    <GridPane hgap="10.0" vgap="10.0">
+        <columnConstraints>
+            <ColumnConstraints minWidth="120.0" />
+            <ColumnConstraints minWidth="150.0" />
+        </columnConstraints>
+        
+        <Label text="Subtotal:" GridPane.rowIndex="0" style="-fx-font-weight: bold;" />
+        <Label fx:id="lblSubtotal" text="0.00" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+        
+        <Label text="Discount:" GridPane.rowIndex="1" />
+        <TextField fx:id="txtDiscount" text="0.00" GridPane.columnIndex="1" GridPane.rowIndex="1" 
+                   prefWidth="150.0" onKeyReleased="#calculateTotal" />
+        
+        <Label text="Total:" GridPane.rowIndex="2" style="-fx-font-weight: bold; -fx-font-size: 16px;" />
+        <Label fx:id="lblTotal" text="0.00" GridPane.columnIndex="1" GridPane.rowIndex="2" 
+               style="-fx-font-weight: bold; -fx-font-size: 16px;" />
+        
+        <Label text="Paid Amount:" GridPane.rowIndex="3" />
+        <TextField fx:id="txtPaid" GridPane.columnIndex="1" GridPane.rowIndex="3" prefWidth="150.0" />
+    </GridPane>
+    
+    <!-- Action Buttons -->
+    <HBox spacing="10.0" alignment="CENTER_RIGHT">
+        <Button fx:id="btnSave" text="Complete Sale" 
+                style="-fx-background-color: #27ae60; -fx-text-fill: white; -fx-font-size: 14px;" />
+        <Button fx:id="btnCancel" text="Cancel" 
+                style="-fx-background-color: #95a5a6; -fx-text-fill: white;" />
+    </HBox>
+    
+</VBox>

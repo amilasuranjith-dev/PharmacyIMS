@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="edu.icet.controller.SalesController"
+      spacing="15.0" style="-fx-background-color: white;">
+    
+    <padding>
+        <Insets top="20.0" right="20.0" bottom="20.0" left="20.0" />
+    </padding>
+    
+    <!-- Title -->
+    <Label text="Sales Management" style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #2c3e50;" />
+    
+    <!-- Search and Add Section -->
+    <HBox spacing="10.0" alignment="CENTER_LEFT">
+        <TextField fx:id="txtSearch" promptText="Search by invoice..." prefWidth="300.0" />
+        <Button text="Search" onAction="#handleSearch" style="-fx-background-color: #3498db; -fx-text-fill: white;" />
+        <Region HBox.hgrow="ALWAYS" />
+        <Button text="+ New Sale" onAction="#handleNewSale" 
+                style="-fx-background-color: #27ae60; -fx-text-fill: white; -fx-font-size: 14px;" />
+    </HBox>
+    
+    <!-- Table -->
+    <TableView fx:id="tblSales" VBox.vgrow="ALWAYS">
+        <columns>
+            <TableColumn fx:id="colId" text="ID" prefWidth="50.0" />
+            <TableColumn fx:id="colInvoice" text="Invoice Number" prefWidth="150.0" />
+            <TableColumn fx:id="colTotal" text="Total Amount" prefWidth="120.0" />
+            <TableColumn fx:id="colDiscount" text="Discount" prefWidth="100.0" />
+            <TableColumn fx:id="colPaid" text="Paid Amount" prefWidth="120.0" />
+            <TableColumn fx:id="colDate" text="Sale Date" prefWidth="180.0" />
+            <TableColumn fx:id="colNotes" text="Notes" prefWidth="200.0" />
+        </columns>
+    </TableView>
+    
+    <!-- Action Buttons -->
+    <HBox spacing="10.0" alignment="CENTER_RIGHT">
+        <Button fx:id="btnView" text="View Details" onAction="#handleViewDetails" 
+                style="-fx-background-color: #3498db; -fx-text-fill: white;" />
+        <Button text="Refresh" onAction="#handleRefresh" 
+                style="-fx-background-color: #95a5a6; -fx-text-fill: white;" />
+    </HBox>
+    
+</VBox>

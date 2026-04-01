@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<VBox xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="edu.icet.controller.DashboardController"
+      spacing="20.0" style="-fx-background-color: white;">
+    
+    <padding>
+        <Insets top="20.0" right="20.0" bottom="20.0" left="20.0" />
+    </padding>
+    
+    <!-- Title -->
+    <Label text="Dashboard" style="-fx-font-size: 28px; -fx-font-weight: bold; -fx-text-fill: #2c3e50;" />
+    
+    <!-- Summary Cards -->
+    <HBox spacing="15.0">
+        <VBox style="-fx-background-color: #3498db; -fx-padding: 20; -fx-background-radius: 10;" 
+              prefWidth="200.0" prefHeight="120.0" spacing="10.0">
+            <Label text="Total Medicines" style="-fx-text-fill: white; -fx-font-size: 14px;" />
+            <Label fx:id="lblTotalMedicines" text="0" style="-fx-text-fill: white; -fx-font-size: 32px; -fx-font-weight: bold;" />
+        </VBox>
+        
+        <VBox style="-fx-background-color: #e74c3c; -fx-padding: 20; -fx-background-radius: 10;" 
+              prefWidth="200.0" prefHeight="120.0" spacing="10.0">
+            <Label text="Low Stock Items" style="-fx-text-fill: white; -fx-font-size: 14px;" />
+            <Label fx:id="lblLowStock" text="0" style="-fx-text-fill: white; -fx-font-size: 32px; -fx-font-weight: bold;" />
+        </VBox>
+        
+        <VBox style="-fx-background-color: #f39c12; -fx-padding: 20; -fx-background-radius: 10;" 
+              prefWidth="200.0" prefHeight="120.0" spacing="10.0">
+            <Label text="Expiring Soon" style="-fx-text-fill: white; -fx-font-size: 14px;" />
+            <Label fx:id="lblExpiring" text="0" style="-fx-text-fill: white; -fx-font-size: 32px; -fx-font-weight: bold;" />
+        </VBox>
+        
+        <VBox style="-fx-background-color: #27ae60; -fx-padding: 20; -fx-background-radius: 10;" 
+              prefWidth="200.0" prefHeight="120.0" spacing="10.0">
+            <Label text="Today's Sales" style="-fx-text-fill: white; -fx-font-size: 14px;" />
+            <Label fx:id="lblTodaySales" text="0.00" style="-fx-text-fill: white; -fx-font-size: 28px; -fx-font-weight: bold;" />
+        </VBox>
+    </HBox>
+    
+    <!-- Tables Section -->
+    <HBox spacing="20.0" VBox.vgrow="ALWAYS">
+        <!-- Low Stock -->
+        <VBox spacing="10.0" HBox.hgrow="ALWAYS">
+            <Label text="Low Stock Medicines" style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #e74c3c;" />
+            <TableView fx:id="tblLowStock" VBox.vgrow="ALWAYS">
+                <columns>
+                    <TableColumn fx:id="colLowStockName" text="Name" prefWidth="150.0" />
+                    <TableColumn fx:id="colLowStockBrand" text="Brand" prefWidth="120.0" />
+                    <TableColumn fx:id="colLowStockQty" text="Quantity" prefWidth="80.0" />
+                    <TableColumn fx:id="colLowStockReorder" text="Reorder Lvl" prefWidth="90.0" />
+                </columns>
+            </TableView>
+        </VBox>
+        
+        <!-- Expiring Soon -->
+        <VBox spacing="10.0" HBox.hgrow="ALWAYS">
+            <Label text="Expiring Soon (30 Days)" style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #f39c12;" />
+            <TableView fx:id="tblExpiring" VBox.vgrow="ALWAYS">
+                <columns>
+                    <TableColumn fx:id="colExpiringName" text="Name" prefWidth="150.0" />
+                    <TableColumn fx:id="colExpiringBrand" text="Brand" prefWidth="120.0" />
+                    <TableColumn fx:id="colExpiringDate" text="Expiry Date" prefWidth="100.0" />
+                    <TableColumn fx:id="colExpiringQty" text="Quantity" prefWidth="80.0" />
+                </columns>
+            </TableView>
+        </VBox>
+    </HBox>
+    
+    <!-- Refresh Button -->
+    <HBox spacing="10.0" alignment="CENTER_RIGHT">
+        <Button text="Refresh Dashboard" onAction="#handleRefresh" 
+                style="-fx-background-color: #3498db; -fx-text-fill: white; -fx-font-size: 14px;" />
+    </HBox>
+    
+</VBox>

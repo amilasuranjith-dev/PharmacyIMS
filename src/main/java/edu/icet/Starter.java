@@ -11,12 +11,12 @@ import java.net.URL;
 public class Starter extends Application {
     @Override
     public void start(Stage stage) throws Exception {
-        // Keep this path in sync with: src/main/resources/fxml/main-form.fxml
-        URL location = getClass().getResource("/fxml/main-form.fxml");
+        // Keep this path in sync with: src/main/resources/view/main-form.view
+        URL location = getClass().getResource("/view/main-form.fxml");
         if (location == null) {
             throw new IllegalStateException(
-                    "FXML not found at /fxml/main-form.fxml. " +
-                    "Expected file: src/main/resources/fxml/main-form.fxml"
+                    "FXML not found at /view/main-form.fxml. " +
+                    "Expected file: src/main/resources/view/main-form.fxml"
             );
         }
 

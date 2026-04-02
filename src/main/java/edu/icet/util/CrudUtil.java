@@ -14,9 +14,6 @@ public class CrudUtil {
         for (int i = 0; i < params.length; i++) {
             pstm.setObject(i + 1, params[i]);
         }
-        
-        // Note: ResultSet is not closed here as it needs to be used by the caller
-        // Caller is responsible for closing the ResultSet and PreparedStatement
         return pstm.executeQuery();
     }
     
